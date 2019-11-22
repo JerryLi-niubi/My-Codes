@@ -30,11 +30,14 @@ class workDays():
        
         return len(list(self.workDays()))
 
+now = datetime.datetime.now()
 
 era = datetime.date(2019,11,12)
-print('Please type in the current day number in the format of：YYYY-MM-DD')
-print('\nPlease do not put weekends')
-dateinput = input()
+
+
+print('\nTodays date is:')
+print (now.strftime("%Y-%m-%d"))
+dateinput = (now.strftime("%Y-%m-%d"))
 dateinput = dateinput.split('-')
 y = int(dateinput[0])
 m = int(dateinput[1])
@@ -42,13 +45,14 @@ d = int(dateinput[2])
 
 b = datetime.date(y,m,d)
 work = workDays(era,b)
-print(work.daysCount())
+
 re = work.daysCount()%8
 if re == 0 :
     print('\nToday is: DAY 8')
 else:
     print('\nToday is: DAY', re)
 classes = []
+print("\nThe classes of today are:")
 if re == 0:
     print("\nEnglish\nMath\nChinese\nScience")
 elif re == 1:
@@ -67,4 +71,3 @@ elif re == 7:
     print("\nChinese\nDrama\nScience\nDesign")
 else:
     print("Error, please type in the right date!")
-
